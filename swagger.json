@@ -1,0 +1,160 @@
+{
+  "swagger" : "2.0",
+  "info" : {
+    "version" : "2016-12-11T23:24:32Z",
+    "title" : "SolverSwagger"
+  },
+  "basePath" : "/pretest",
+  "schemes" : [ "http" ],
+  "paths" : {
+    "/v1/emailverification" : {
+      "get" : {
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "code",
+          "in" : "query",
+          "required" : false,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "200 response",
+            "schema" : {
+              "$ref" : "#/definitions/Empty"
+            }
+          }
+        }
+      }
+    },
+    "/v1/signin" : {
+      "post" : {
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "signin",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/signin"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "200 response",
+            "schema" : {
+              "$ref" : "#/definitions/signinToken"
+            }
+          },
+          "401" : {
+            "description" : "401 response"
+          }
+        }
+      }
+    },
+    "/v1/signup" : {
+      "post" : {
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "signup",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/signup"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "200 response",
+            "schema" : {
+              "$ref" : "#/definitions/Empty"
+            }
+          }
+        }
+      }
+    },
+    "/v1business/business01" : {
+      "get" : {
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "param01",
+          "in" : "query",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "Authorization",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "200 response",
+            "schema" : {
+              "$ref" : "#/definitions/business01Return"
+            }
+          },
+          "403" : {
+            "description" : "403 response"
+          }
+        }
+      }
+    }
+  },
+  "definitions" : {
+    "Empty" : {
+      "type" : "object",
+      "title" : "Empty Schema"
+    },
+    "business01Return" : {
+      "type" : "object",
+      "properties" : {
+        "response01" : {
+          "type" : "string"
+        }
+      },
+      "title" : "Error Schema"
+    },
+    "signin" : {
+      "type" : "object",
+      "properties" : {
+        "username" : {
+          "type" : "string"
+        },
+        "password" : {
+          "type" : "string"
+        }
+      },
+      "title" : "Error Schema"
+    },
+    "signinToken" : {
+      "type" : "object",
+      "properties" : {
+        "token" : {
+          "type" : "string"
+        }
+      },
+      "title" : "Error Schema"
+    },
+    "signup" : {
+      "type" : "object",
+      "properties" : {
+        "username" : {
+          "type" : "string"
+        },
+        "password1" : {
+          "type" : "string"
+        },
+        "password2" : {
+          "type" : "string"
+        },
+        "email" : {
+          "type" : "string"
+        }
+      },
+      "title" : "Error Schema"
+    }
+  }
+}
